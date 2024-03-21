@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="KinectV01.UserInfoControls.PlayerDetailPoints"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d">
+    <Grid Height="120">
+        <Image HorizontalAlignment="Left" Height="100" Margin="10,10,0,10" VerticalAlignment="Top" Width="100" Source="/sampleimg.jpg"/>
+        <Label x:Name="lblPlayerName" Content="플레이어 이름
+               " HorizontalAlignment="Left" Margin="121,10,0,0" VerticalAlignment="Top" Width="119" FontFamily="NEXON Football Gothic B"/>
+        <Label x:Name="lblTime" Content="응원한 시간" HorizontalAlignment="Left" Margin="121,42,0,0" VerticalAlignment="Top" Width="119" FontFamily="NEXON Football Gothic B"/>
+        <Label x:Name="lblPoint" Content="누적 점수" HorizontalAlignment="Left" Margin="121,73,0,0" VerticalAlignment="Top" Width="119" FontFamily="NEXON Football Gothic B"/>
+        <Border BorderBrush="Black" BorderThickness="1"/>
+
+    </Grid>
+</UserControl>

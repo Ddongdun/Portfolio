@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="KinectV01.annime.ScoreProgressBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KinectV01.annime"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1600">
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="CustomProgressBarStyle" TargetType="ProgressBar">
+                <Setter Property="Foreground" >
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/annime/ProgressBar_image.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <!-- 화면 상단에 ProgressBar 배치 -->
+
+        <!-- 나머지 화면 내용을 아래에 배치 -->
+        <Image x:Name="light_right" HorizontalAlignment="Center" Height="3000" Margin="0,-1800,0,0" VerticalAlignment="Top" Width="900" Source="/annime/spotlight.png" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/annime/spotlight.png"/>
+            </Image.OpacityMask>
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.346"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <!-- 나머지 화면 내용을 아래에 배치 -->
+        <Image x:Name="light_left" HorizontalAlignment="Center" Height="3000" Margin="0,-1800,0,0" VerticalAlignment="Top" Width="900" Source="/annime/spotlight.png" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.134"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.331"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <!-- 나머지 화면 내용을 아래에 배치 -->
+        <TextBlock x:Name="NumberTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,322,0,0" Height="92" FontSize="70" FontFamily="Bodoni MT Black"/>
+        <Image x:Name="crowd_image" HorizontalAlignment="Center" Height="414" Margin="0,0,0,-1" VerticalAlignment="Bottom" Width="1620" Source="/annime/crowd-removebg-preview.png" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.066"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.175"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <TextBox x:Name="TextBox" HorizontalAlignment="Left" Height="36" Margin="1129,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="106" RenderTransformOrigin="-0.538,4.139" Opacity="0"/>
+        <Image x:Name="crowd_image_glow_stick_1" HorizontalAlignment="Center" Height="414" Margin="0,0,0,-1" VerticalAlignment="Bottom" Width="1620" Source="/annime/crowd-removebg-preview_glow_stick_1.png" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.066"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.175"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="crowd_image_glow_stick_2" HorizontalAlignment="Center" Height="414" Margin="0,0,0,-1" VerticalAlignment="Bottom" Width="1620" Source="/annime/crowd-removebg-preview_glow_stick_2.png" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.066"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.175"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <ProgressBar x:Name="ProgressBar1" ValueChanged="ProgressBar_ValueChanged" VerticalAlignment="Bottom" Height="70" Margin="15,0,15,10" Style="{StaticResource CustomProgressBarStyle}" RenderTransformOrigin="0.48,-1.528" Maximum="1000" >
+            <ProgressBar.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF510383"/>
+                    <GradientStop Color="#FF889DB1" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Background>
+        </ProgressBar>
+    </Grid>
+</UserControl>

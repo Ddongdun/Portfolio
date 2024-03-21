@@ -1,0 +1,80 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:KinectV01"
+        xmlns:f="clr-namespace:KinectV01.UserInfoControls"
+        xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        xmlns:annime="clr-namespace:KinectV01.annime" x:Class="KinectV01.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1600"
+        WindowStartupLocation="CenterScreen"
+    >
+    <Window.Resources>
+        <local:MultiParameter x:Key="MultiParameter"/>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <StaticResource ResourceKey="mainViewModel"/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/background_frame.png"/>
+        </Grid.Background>
+        <cef:ChromiumWebBrowser x:Name="browser" Address="https://youtube.com" Margin="48,48,478,162">
+            <behaviors:Interaction.Triggers>
+                <behaviors:EventTrigger EventName="Loaded">
+                    <behaviors:InvokeCommandAction Command="{Binding CreateEnterWindowCommand}" />
+                </behaviors:EventTrigger>
+            </behaviors:Interaction.Triggers>
+        </cef:ChromiumWebBrowser>
+        <f:RankMainWindow x:Name="rankWindow" HorizontalAlignment="Right" Margin="0,75,60,0" VerticalAlignment="Top" Width="287" Loaded="rankWindow_Loaded"/>
+        <Button x:Name="resetBtn" Content="Reset"  Foreground="White" Command="{Binding CreateEnterWindowCommand}" HorizontalAlignment="Right" Margin="0,0,50,10" VerticalAlignment="Bottom" Height="30" Width="80" FontFamily="NEXON Football Gothic B" FontSize="13">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="100"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="/btncolor.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="측정" Foreground="White" HorizontalAlignment="Right" Margin="0,0,150,10" VerticalAlignment="Bottom" Height="30" Width="80" FontFamily="NEXON Football Gothic B" FontSize="13">
+            <Button.Background>
+                <ImageBrush ImageSource="/btncolor.png"/>
+            </Button.Background>
+            <behaviors:Interaction.Triggers>
+                <behaviors:EventTrigger EventName="Click">
+                    <behaviors:InvokeCommandAction Command="{Binding startPointCalcCommand}">
+                        <behaviors:InvokeCommandAction.CommandParameter>
+                            <MultiBinding Converter="{StaticResource MultiParameter}">
+                                <Binding ElementName="canvas01"/>
+                                <Binding ElementName="image01"/>
+                                <!-- 추가 바인딩 필요 시 여기에 추가 -->
+                            </MultiBinding>
+                        </behaviors:InvokeCommandAction.CommandParameter>
+                    </behaviors:InvokeCommandAction>
+                </behaviors:EventTrigger>
+            </behaviors:Interaction.Triggers>
+
+        </Button>
+        <Button x:Name="UserInfoBtn" Content="UserInfo"  Foreground="White" Command="{Binding CreateEnterWindowCommand}" HorizontalAlignment="Right" Margin="0,15,50,0" VerticalAlignment="Top" Height="30" Width="80" FontFamily="NEXON Football Gothic B" FontSize="13" Click="UserInfoBtn_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="100"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="/btncolor.png"/>
+            </Button.Background>
+        </Button>
+        <Canvas x:Name="canvas01" Margin="1250,485,68,141" Width="282" Height="258">
+            <Image x:Name="image01" Height="258" Width="282" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.496,0.56" Canvas.Top="-1"/>
+        </Canvas>
+        <annime:ScoreProgressBar x:Name="scoreProgressBar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="852" Width="1175" IsHitTestVisible="False"/>
+    </Grid>
+</Window>
