@@ -39,21 +39,15 @@
 # 클론하기
 git clone https://github.com/사용자이름/저장소이름.git
 
-# 디렉토리 이동
-cd 저장소이름
-
-# 필요 라이브러리 설치
-pip install -r requirements.txt
-
 ---
 
 ## 사용법 📚  
-1. 데이터를 준비하세요: `data/` 디렉토리에 CSV 파일 추가.
-2. 메인 스크립트를 실행하세요:
+1.  LostArk API 준비
+2. 메인 스크립트 실행:
    ```bash
    python main.py
    ```
-3. 결과를 확인하세요: `output/` 폴더에 저장됩니다.
+3. 결과 그래프 확인
 
 ---
 
