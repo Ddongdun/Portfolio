@@ -34,7 +34,7 @@
 **설명:** Kinect를 활용한 좋아하는 연예인 응원  
 - **기술 스택:** [C#]  
 - **성과:** [인벤토리 UI 및 DB 설계]  
-- [🔗 자세히 보기](https://github.com/YourUsername/Project2)
+- [🔗 자세히 보기]([(https://github.com/Ddongdun/Portfolio/tree/Kinect?tab=readme-ov-file))
 
 ---
 
