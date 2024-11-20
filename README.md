@@ -42,7 +42,7 @@ git clone https://github.com/사용자이름/저장소이름.git
 ---
 
 ## 사용법 📚  
-1.  LostArk API 준비
+1. LostArk API 준비
 2. 메인 스크립트 실행:
    ```bash
    python main.py
