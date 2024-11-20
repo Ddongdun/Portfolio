@@ -68,5 +68,3 @@ pip install -r requirements.txt
 - 작성자: [Made by SDJ] 
 - 이메일: [andel75@naver.com]
 ```
-
-위 템플릿은 기본적인 프로젝트 소개부터 설치 방법, 사용법, 기여 방법까지 포괄적으로 포함하고 있습니다. 필요에 따라 내용을 수정하여 사용하세요! 😊
