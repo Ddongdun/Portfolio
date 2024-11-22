@@ -6,7 +6,7 @@ import cv2
 import sys
 import time
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect(('192.168.0.30', 8801))
+sock.connect(('IP 주소', 포트번호))
 # img_path = "./evalimg/img_" + time + ".jpg"
 img_path = "/home/pi/image.jpg"
 cam = cv2.VideoCapture(0)
