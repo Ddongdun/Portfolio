@@ -1,4 +1,4 @@
-import numpy as np 
+import numpy as np
 #라이브러리 임포트
 import os
 import threading
